@@ -6,7 +6,7 @@ export const BackGroundPicture: React.FC = () => {
   return (
     <div className={classNames(
       styles.bg,
-      styles.quiz,
+      // styles.quiz,
     )}>
       <div className={styles.gradient}></div>
     </div>
