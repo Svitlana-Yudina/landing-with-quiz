@@ -1,0 +1,33 @@
+.quiz {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #242530;
+}
+
+.content {
+  padding: 0 24px 16px;
+  // position: relative;
+  // z-index: 2;
+}
+
+
+.question {
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.answers {
+  margin-bottom: 59px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
