@@ -5,3 +5,12 @@ export type QuizType = {
   question: string,
   answers: string[],
 };
+
+export type CommentType = {
+  id: number,
+  femName: string,
+  maleName: string,
+  photo: string,
+  ago: string,
+  commentText: string,
+}
