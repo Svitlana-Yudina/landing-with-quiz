@@ -10,7 +10,7 @@ type Props = {
 };
 
 const BUTTON_STYLES = {
-  choice: styles.sexChoice,
+  sex: styles.sexChoice,
   quiz: styles.quizAnswers,
   create: styles.createUser,
 }

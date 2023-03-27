@@ -1,4 +1,4 @@
-export type ButtonStyles = 'choice' | 'quiz' | 'create';
+export type ButtonStyles = 'sex' | 'quiz' | 'create';
 
 export type QuizType = {
   step: number,
