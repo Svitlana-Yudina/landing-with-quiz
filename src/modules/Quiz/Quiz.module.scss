@@ -1,9 +1,11 @@
+@import '../../utils/variables';
+
 .quiz {
   height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
-  background: #242530;
+  background: $bg--dark-gray;
 }
 
 .content {
