@@ -14,9 +14,7 @@ export const Quiz: React.FC<Props> = ({ quiz }) => {
 
   return (
     <div className={styles.quiz}>
-      {/* <div className={styles.x}> */}
-        <BackGroundPicture />
-      {/* </div> */}
+      <BackGroundPicture />
 
       <div className={styles.content}>
         <div className={styles.quizBlock}>
