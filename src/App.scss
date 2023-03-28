@@ -1,6 +1,8 @@
+@import './utils/variables';
+
 .app {
   width: 100%;
-  min-height: 460px;
+  min-height: 46rem;
   height: 100vh;
 
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -13,5 +15,6 @@
     margin: 0 auto;
     height: 100%;
     max-width: 480px;
+    background: $bg--dark-gray;
   }
 }

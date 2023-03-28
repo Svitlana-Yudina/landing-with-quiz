@@ -1,7 +1,8 @@
 @import '../../utils/variables';
 
 .main {
-    height: calc(100% - 6.3rem);
+    height: calc(100% - 6.3rem + 2.6rem);
+    max-height: calc(58rem - 6.3rem - 2.6rem);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,6 +10,8 @@
 }
 
 .content {
+  position: relative;
+  top: -2.6rem;
   padding: 0 1.6rem 2rem;
   display: flex;
   flex-direction: column;
@@ -25,5 +28,35 @@
   text-transform: uppercase;
 
   color: #FFFFFF;
+}
 
+.comments {
+  position: relative;
+  top: -2.6rem;
+}
+
+.footer {
+  position: relative;
+  top: -2.6rem;
+
+  padding: 2.4rem 0 1.9rem;
+  width: 100%;
+  height: 14rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  background: #3B3C4B;
+  box-shadow: inset 0px 2px 20px rgba(0, 0, 0, 0.45);
+
+  .link {
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    text-decoration: none;
+
+    color: #FFFFFF;
+  }
 }
