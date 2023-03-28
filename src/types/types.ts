@@ -1,4 +1,5 @@
 export type ButtonStyles = 'sex' | 'quiz' | 'create';
+export type InputType = 'text' | 'password';
 
 export type QuizType = {
   step: number,

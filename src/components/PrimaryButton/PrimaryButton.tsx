@@ -24,7 +24,7 @@ export const PrimaryButton: React.FC<Props> = ({
 }) => {
   return (
     <button
-      type="button"
+      type="submit"
       className={classNames(
         styles.default,
         BUTTON_STYLES[type],

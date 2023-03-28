@@ -1,4 +1,5 @@
 @import '../../utils/variables';
+@import '../../utils/mixins';
 
 .quiz {
   height: 100%;
@@ -7,6 +8,10 @@
   display: flex;
   flex-direction: column;
   background: $bg--dark-gray;
+
+  @include onDesktop {
+    max-height: 91.5rem;
+  }
 }
 
 .content {
@@ -16,9 +21,11 @@
 }
 
 .text {
-  padding: 0 24px 16px;
+  padding: 0 2.4rem 1.6rem;
   position: fixed;
   bottom: 0;
+  max-width: 480px;
+  width: 100%;
   text-align: center;
   color: #AAB2BD;
   opacity: 0.6;
