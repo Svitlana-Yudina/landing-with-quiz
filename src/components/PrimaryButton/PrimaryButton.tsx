@@ -7,6 +7,7 @@ type Props = {
   type: ButtonStyles,
   text: string,
   image?: string;
+  onClick: () => void,
 };
 
 const BUTTON_STYLES = {
@@ -15,15 +16,21 @@ const BUTTON_STYLES = {
   create: styles.createUser,
 }
 
-export const PrimaryButton: React.FC<Props> = ({ type, text, image }) => {
+export const PrimaryButton: React.FC<Props> = ({
+  type,
+  text,
+  image,
+  onClick,
+}) => {
   return (
     <button
-      type="submit"
+      type="button"
       className={classNames(
         styles.default,
         BUTTON_STYLES[type],
         { [styles.withIcon]: !!image },
       )}
+      onClick={onClick}
     >
       {image && (
         <img className={styles.icon} src={image} alt="person" />
