@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import { BackGroundPicture } from '../../components/BackGroundPicture';
 import { CommentsList } from '../../components/CommentsList';
@@ -27,7 +28,40 @@ export const Main: React.FC = () => {
         </div>
       </div>
 
-      <CommentsList />
+      <div className={styles.comments}>
+        <CommentsList />
+      </div>
+
+      <footer className={styles.footer}>
+        <a
+          href="/"
+          className={styles.link}
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+        >
+          Поддержка
+        </a>
+        <a
+          href="/"
+          className={styles.link}
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+        >
+          О нас
+        </a>
+        <a
+          href="/"
+          className={styles.link}
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+        >
+          Контакты
+        </a>
+      </footer>
+
     </>
   );
 };

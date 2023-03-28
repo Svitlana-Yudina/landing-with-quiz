@@ -1,7 +1,6 @@
 import React from 'react';
 import { BackGroundPicture } from '../../components/BackGroundPicture';
 import { PrimaryButton } from '../../components/PrimaryButton';
-import { ToolTipText } from '../../components/ToolTipText';
 import { QuizType } from '../../types/types';
 import styles from './Quiz.module.scss';
 
@@ -13,11 +12,11 @@ export const Quiz: React.FC<Props> = ({ quiz }) => {
   const { step, question, answers } = quiz;
 
   return (
-    <div className={styles.quiz}>
-      <BackGroundPicture />
+    <>
+      <div className={styles.quiz}>
+        <BackGroundPicture />
 
-      <div className={styles.content}>
-        <div className={styles.quizBlock}>
+        <div className={styles.content}>
           <h2 className={styles.question}>
             {question}
           </h2>
@@ -27,12 +26,11 @@ export const Quiz: React.FC<Props> = ({ quiz }) => {
             ))}
           </div>
         </div>
-
-        <ToolTipText
-          text='Чтобы идеально подобрать для вас пару,
-          ответьте на несколько вопросов'
-        />
       </div>
-    </div>
+      <p className={styles.text}>
+        Чтобы идеально подобрать для вас пару,<br />
+        ответьте на несколько вопросов
+      </p>
+    </>
   );
 };
