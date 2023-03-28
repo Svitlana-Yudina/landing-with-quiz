@@ -29,10 +29,10 @@ export const CommentItem: React.FC<Props> = ({ comment }) => {
         </div>
       </div>
 
-      <div className={styles.description}>
+      <p className={styles.description}>
         {commentText}
-      </div>
-      {/* <span>Читать полностью</span> */}
+        {/* <a className={styles.readMore}>Читать полностью</a> */}
+      </p>
     </div>
   );
 };

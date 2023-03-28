@@ -30,6 +30,7 @@
 }
 
 .description {
+  position: relative;
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
@@ -40,7 +41,7 @@
   color: #AAB2BD;
 
   display: -webkit-box;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
