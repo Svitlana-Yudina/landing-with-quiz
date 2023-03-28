@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { Main } from './modules/Main';
 import { Quiz } from './modules/Quiz';
-import { QuizType } from './types/types';
-
-const quiz: QuizType[] = [
-  {
-    step: 1,
-    question: 'Цель знакомства:',
-    answers: [
-      'дружба и общение',
-      '',
-      'создание семьи',
-      'встречи без обязательств',
-    ],
-  },
-];
+import { ButtonStyles } from './types/types';
 
 export const App: React.FC = () => {
+  const [page, setPage] = useState<ButtonStyles>('sex');
+
   return (
     <div className="app">
       <div className="app__content">
-        <Main />
-        {/* <Quiz quiz={quiz[0]}/> */}
+        {page === 'sex' && (
+          <Main setPage={setPage}/>
+        )}
+        {page === 'quiz' && (
+          <Quiz setPage={setPage}/>
+        )}
       </div>
     </div>
   );
