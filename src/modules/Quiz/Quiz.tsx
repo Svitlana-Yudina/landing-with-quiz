@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { BackGroundPicture } from '../../components/BackGroundPicture';
 import { PrimaryButton } from '../../components/PrimaryButton';
@@ -54,8 +53,6 @@ const quiz: QuizType[] = [
 export const Quiz: React.FC<Props> = ({ setPage }) => {
   const [step, setStep] = useState(1);
   const foundStep = quiz.find(item => item.step === step);
-
-  console.log(foundStep);
 
   if (!foundStep) {
     setPage('create');

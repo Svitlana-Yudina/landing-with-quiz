@@ -1,4 +1,5 @@
 @import './utils/variables';
+@import './utils/mixins';
 
 .app {
   width: 100%;
@@ -11,10 +12,15 @@
   font-size: 1.4rem;
   line-height: 1.6rem;
 
+  @include onDesktop {
+    min-height: 58rem;
+  }
+
   &__content {
     margin: 0 auto;
     height: 100%;
     max-width: 480px;
+    width: 100%;
     background: $bg--dark-gray;
   }
 }
