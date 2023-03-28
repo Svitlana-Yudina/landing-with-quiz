@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 import { Main } from './modules/Main';
 import { Quiz } from './modules/Quiz';
+import { Registration } from './modules/Registration';
 import { ButtonStyles } from './types/types';
 
 export const App: React.FC = () => {
@@ -15,6 +16,9 @@ export const App: React.FC = () => {
         )}
         {page === 'quiz' && (
           <Quiz setPage={setPage}/>
+        )}
+        {page === 'create' && (
+          <Registration />
         )}
       </div>
     </div>
