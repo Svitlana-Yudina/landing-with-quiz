@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-shadow */
 import classNames from 'classnames';
 import React, { useState } from 'react';
@@ -17,15 +16,36 @@ type Props = {
 
 export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
   const [isChanging, setIsChanging] = useState(false);
+  const [changeError, setChangeError] = useState('');
   const { register, formState: { errors, touchedFields } } = useFormContext();
+
+  const handleChange = (value: string) => {
+    if (name === 'name') {
+      if (!check.pattern.test(value)) {
+        setChangeError('Пожалуйста, используйте только буквы');
+      } else {
+        setChangeError('');
+      }
+    }
+
+    if (name === 'email') {
+      if (!check.pattern.test(value)) {
+        setChangeError('Пожалуйста, используйте правильный email');
+      } else {
+        setChangeError('');
+      }
+    }
+  }
 
   return (
     <label className={styles.label}>
       <input
         className={classNames(
           styles.input,
-          { [styles.error]: !!errors[name] },
-          { [styles.success]: !errors[name] && touchedFields[name] },
+          { [styles.error]: !!errors[name] || changeError },
+          { [styles.success]: !errors[name]
+            && touchedFields[name]
+            && !changeError },
         )}
         type={type}
         placeholder={text}
@@ -38,8 +58,9 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
             value: check.minLength,
             message: `Поле должно содержать не менее ${check.minLength} символов!`,
           },
-          onChange() {
+          onChange(event) {
             setIsChanging(true);
+            handleChange(event.target.value);
           },
           onBlur() {
             setIsChanging(false);
@@ -49,8 +70,8 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
       {touchedFields[name] && !isChanging && (
         <div className={classNames(
           styles.icon,
-          { [styles.errorIcon]: !!errors[name] },
-          { [styles.successIcon]: !errors[name] },
+          { [styles.errorIcon]: !!errors[name] || changeError },
+          { [styles.successIcon]: !errors[name] && !changeError },
         )}></div>
       )}
 
@@ -69,6 +90,11 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
           }
           }
         />
+        {changeError && (
+          <p className={styles.errorText}>
+          {changeError}
+        </p>
+        )}
     </label>
   );
 };

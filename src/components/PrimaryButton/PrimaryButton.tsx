@@ -6,7 +6,7 @@ import styles from './PrimaryButton.module.scss';
 type Props = {
   type: ButtonStyles,
   text: string,
-  image?: string;
+  image?: string,
   onClick: () => void,
 };
 
