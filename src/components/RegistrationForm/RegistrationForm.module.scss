@@ -1,0 +1,23 @@
+.title {
+  margin-bottom: 0.6rem;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+
+  color: #FFFFFF;
+}
+
+.formItem {
+  margin-bottom: 1.8rem;
+
+  &:last-of-type {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
