@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.b2e8c779.css",
-    "main.js": "./static/js/main.2c89d8de.js",
+    "main.css": "./static/css/main.4de10e87.css",
+    "main.js": "./static/js/main.40a7012b.js",
     "static/media/Roboto-Italic.ttf": "./static/media/Roboto-Italic.87f3afe16a8c3c370634.ttf",
     "static/media/Roboto-Medium.ttf": "./static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "./static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
@@ -14,12 +14,14 @@
     "static/media/Jost-Bold.ttf": "./static/media/Jost-Bold.d26e8e629f57716e90a0.ttf",
     "static/media/Vector.svg": "./static/media/Vector.666eac0ceabd425311a8.svg",
     "index.html": "./index.html",
+    "static/media/success.svg": "./static/media/success.b839aab45d8ae158fae6.svg",
     "static/media/gradient.svg": "./static/media/gradient.f4d3221713e535286588.svg",
-    "main.b2e8c779.css.map": "./static/css/main.b2e8c779.css.map",
-    "main.2c89d8de.js.map": "./static/js/main.2c89d8de.js.map"
+    "static/media/error.svg": "./static/media/error.45096ed01c1576c3eee3.svg",
+    "main.4de10e87.css.map": "./static/css/main.4de10e87.css.map",
+    "main.40a7012b.js.map": "./static/js/main.40a7012b.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2e8c779.css",
-    "static/js/main.2c89d8de.js"
+    "static/css/main.4de10e87.css",
+    "static/js/main.40a7012b.js"
   ]
 }
