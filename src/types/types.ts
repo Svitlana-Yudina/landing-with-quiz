@@ -15,3 +15,17 @@ export type CommentType = {
   ago: string,
   commentText: string,
 }
+
+export type Inputs = {
+  name: string,
+  password: string,
+  email: string,
+  day: string,
+  month: string,
+  year: string,
+};
+
+export type Check = {
+  pattern: RegExp,
+  minLength: number,
+};
