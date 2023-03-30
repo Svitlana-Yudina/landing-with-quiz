@@ -2,11 +2,13 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
-import { getSequence } from '../../functions/function';
+import { getAge, getSequence } from '../../functions/function';
 import { Inputs } from '../../types/types';
+import { AgreeCheck } from '../AgreeCheck';
 import { DateSelect } from '../DateSelect';
+import { ErrMessage } from '../ErrMessage';
 import { PrimaryButton } from '../PrimaryButton';
 import { TextInput } from '../TextInput';
 import styles from './RegistrationForm.module.scss';
@@ -16,6 +18,8 @@ const months = getSequence(1, 12).map(el => el.length === 1 ? '0' + el : el);
 const years = getSequence(1940, 2010);
 
 export const RegistrationForm: React.FC = () => {
+  const [isAgeValid, setIsAgeValid] = useState(true);
+
   const methods = useForm<Inputs>({
     defaultValues: {
       name: '',
@@ -24,16 +28,23 @@ export const RegistrationForm: React.FC = () => {
       year: '',
       password: '',
       email: '',
+      agree: true,
     },
     mode: 'all',
     criteriaMode: 'all',
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    const date = new Date(+data.year, +data.month, +data.day);
+    const userAge = getAge(+data.year, +data.month, +data.day);
+
+    if (userAge < 18 || userAge > 80) {
+      setIsAgeValid(false);
+
+      return;
+    }
 
     console.log(data);
-    console.log(date);
+    console.log(userAge);
   };
 
   const namePattern = new RegExp(/^[A-Za-zа-яА-я]+$/);
@@ -79,10 +90,28 @@ export const RegistrationForm: React.FC = () => {
             Дата рождения:
           </h3>
           <div className={styles.dateContainer}>
-            <DateSelect name="day" options={days} defOption="ДД"/>
-            <DateSelect name="month" options={months} defOption="ММ"/>
-            <DateSelect name="year" options={years} defOption="ГГГГ"/>
+            <DateSelect
+              name="day"
+              options={days}
+              defOption="ДД"
+              setIsAgeValid={setIsAgeValid}
+            />
+            <DateSelect
+              name="month"
+              options={months}
+              defOption="ММ"
+              setIsAgeValid={setIsAgeValid}
+            />
+            <DateSelect
+              name="year"
+              options={years}
+              defOption="ГГГГ"
+              setIsAgeValid={setIsAgeValid}
+            />
           </div>
+          {!isAgeValid && (
+            <ErrMessage text="Возраст должен быть больше 18 и меньше 80 лет"/>
+          )}
         </div>
 
         <div className={styles.formItem}>
@@ -110,6 +139,8 @@ export const RegistrationForm: React.FC = () => {
         </div>
 
         <PrimaryButton type="create" text="создать" onClick={() => {}}/>
+
+        <AgreeCheck name="agree"/>
       </form>
     </FormProvider>
   );
