@@ -1,63 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BackGroundPicture } from '../../components/BackGroundPicture';
 import { PrimaryButton } from '../../components/PrimaryButton';
-import { ButtonStyles, QuizType } from '../../types/types';
+import { QuizType } from '../../types/types';
 import styles from './Quiz.module.scss';
 
 type Props = {
-  setPage: React.Dispatch<React.SetStateAction<ButtonStyles>>,
+  question: QuizType,
+  setStep: React.Dispatch<React.SetStateAction<number>>,
 }
 
-const quiz: QuizType[] = [
-  {
-    step: 1,
-    question: 'Цель знакомства:',
-    answers: [
-      'дружба и общение',
-      'test string'
-      'создание семьи',
-      'встречи без обязательств',
-    ],
-  },
-  {
-    step: 2,
-    question: 'Что предпочтете?',
-    answers: [
-      'мясо',
-      'рыба',
-      'только овощи',
-    ],
-  },
-  {
-    step: 3,
-    question: 'Любимый фрукт:',
-    answers: [
-      'банан',
-      'яблоко',
-      'апельсин',
-      'виноград',
-    ],
-  },
-  {
-    step: 4,
-    question: 'Любимый напиток:',
-    answers: [
-      'кофе',
-      'чай',
-      'вода',
-      'алкоголь',
-    ],
-  },
-];
-
-export const Quiz: React.FC<Props> = ({ setPage }) => {
-  const [step, setStep] = useState(1);
-  const foundStep = quiz.find(item => item.step === step);
-
-  if (!foundStep) {
-    setPage('create');
-  }
-
+export const Quiz: React.FC<Props> = ({ question, setStep }) => {
   const handleClickQuiz = () => {
     setStep(p => p + 1);
   };
@@ -66,15 +18,15 @@ export const Quiz: React.FC<Props> = ({ setPage }) => {
     <>
       <div className={styles.quiz}>
         <BackGroundPicture />
-        {foundStep && (
+        {question && (
           <div className={styles.content}>
             <h2 className={styles.question}>
-              {foundStep.question}
+              {question.question}
             </h2>
             <div className={styles.answers}>
-              {foundStep.answers.map(answer => (
+              {question.answers.map(answer => (
                 <PrimaryButton
-                  key={`${foundStep.step}-${answer}`}
+                  key={`${question.step}-${answer}`}
                   type="quiz"
                   text={answer}
                   onClick={handleClickQuiz}
