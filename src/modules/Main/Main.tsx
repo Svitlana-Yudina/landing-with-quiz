@@ -2,6 +2,7 @@
 import React from 'react';
 import { BackGroundPicture } from '../../components/BackGroundPicture';
 import { CommentsList } from '../../components/CommentsList';
+import { Footer } from '../../components/Footer';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import { ButtonStyles } from '../../types/types';
 import styles from './Main.module.scss';
@@ -43,7 +44,7 @@ export const Main: React.FC<Props> = ({ setPage }) => {
         <CommentsList />
       </div>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="/"
           className={styles.link}
@@ -71,7 +72,8 @@ export const Main: React.FC<Props> = ({ setPage }) => {
         >
           Контакты
         </a>
-      </footer>
+      </footer> */}
+      <Footer />
 
     </>
   );

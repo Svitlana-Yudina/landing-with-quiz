@@ -23,6 +23,7 @@ export type Inputs = {
   day: string,
   month: string,
   year: string,
+  agree: boolean,
 };
 
 export type Check = {

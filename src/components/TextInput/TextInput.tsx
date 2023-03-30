@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-// import { debounce } from '../../functions/function';
 import { Check, InputType } from '../../types/types';
 import styles from './TextInput.module.scss';
+import { ErrMessage } from '../ErrMessage';
 
 type Props = {
   type: InputType,
@@ -18,6 +18,7 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
   const [isChanging, setIsChanging] = useState(false);
   const [changeError, setChangeError] = useState('');
   const { register, formState: { errors, touchedFields } } = useFormContext();
+  const isSuccessIcon = !errors[name] && !changeError && touchedFields[name];
 
   const handleChange = (value: string) => {
     if (name === 'name') {
@@ -67,11 +68,11 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
           },
         })}
       />
-      {touchedFields[name] && !isChanging && (
+      {!isChanging && (
         <div className={classNames(
           styles.icon,
           { [styles.errorIcon]: !!errors[name] || changeError },
-          { [styles.successIcon]: !errors[name] && !changeError },
+          { [styles.successIcon]: isSuccessIcon },
         )}></div>
       )}
 
@@ -82,18 +83,14 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
             return (
               (messages)
               && Object.entries(messages).map(([type, message]) => (
-                <p key={type} className={styles.errorText}>
-                  {message}
-                </p>
+                <ErrMessage key={type} text={message}/>
               ))
             );
           }
           }
         />
         {changeError && (
-          <p className={styles.errorText}>
-          {changeError}
-        </p>
+          <ErrMessage text={changeError}/>
         )}
     </label>
   );

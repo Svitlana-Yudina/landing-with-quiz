@@ -22,3 +22,22 @@ export function getSequence(start: number, end: number) {
 
   return sequence;
 }
+
+export function getAge(year: number, month: number, day: number) {
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+
+  const age = currentYear - year;
+
+  if (currentMonth < month) {
+    return age - 1;
+  }
+
+  if (currentDay < day) {
+    return age - 1;
+  }
+
+  return age;
+}
