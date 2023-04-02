@@ -6,6 +6,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import { Check, InputType } from '../../types/types';
 import styles from './TextInput.module.scss';
 import { ErrMessage } from '../ErrMessage';
+import { debounce } from '../../functions/function';
 
 type Props = {
   type: InputType,
@@ -15,31 +16,21 @@ type Props = {
 };
 
 export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
+  const [passType, setPassType] = useState(type);
   const [isChanging, setIsChanging] = useState(false);
   const [changeError, setChangeError] = useState('');
-  const { register, formState: { errors, touchedFields } } = useFormContext();
+  const {
+    register,
+    trigger,
+    formState: { errors, touchedFields },
+  } = useFormContext();
   const isSuccessIcon = !errors[name] && !changeError && touchedFields[name];
 
-  const handleChange = (value: string) => {
-    if (name === 'name') {
-      if (!check.pattern.test(value)) {
-        setChangeError('Пожалуйста, используйте только буквы');
-      } else {
-        setChangeError('');
-      }
-    }
-
-    if (name === 'email') {
-      if (!check.pattern.test(value)) {
-        setChangeError('Пожалуйста, используйте правильный email');
-      } else {
-        setChangeError('');
-      }
-    }
-  }
-
   return (
-    <label className={styles.label}>
+    <>
+    <label
+      className={styles.label}
+    >
       <input
         className={classNames(
           styles.input,
@@ -48,7 +39,7 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
             && touchedFields[name]
             && !changeError },
         )}
-        type={type}
+        type={passType}
         placeholder={text}
         {...register(name, {
           required: {
@@ -59,14 +50,40 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
             value: check.minLength,
             message: `Поле должно содержать не менее ${check.minLength} символов!`,
           },
-          onChange(event) {
-            setIsChanging(true);
-            handleChange(event.target.value);
+          validate: {
+            pattern: (val) => {
+              const res = check.pattern.test(val);
+
+              if (name === 'name') {
+                if (!res) {
+                  setChangeError('Пожалуйста, используйте только буквы');
+                } else {
+                  setChangeError('');
+                }
+              }
+
+              if (name === 'email') {
+                if (!res) {
+                  setChangeError('Пожалуйста, используйте правильный email');
+                } else {
+                  setChangeError('');
+                }
+              }
+
+              return res;
+            },
           },
-          onBlur() {
+          // onChange(event) {
+          //   setIsChanging(true);
+          //   console.log('onchange', isChanging);
+          // },
+          onBlur(event) {
             setIsChanging(false);
           },
         })}
+        onFocus={(event) => {
+          setIsChanging(true);
+        }}
       />
       {!isChanging && (
         <div className={classNames(
@@ -76,22 +93,44 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
         )}></div>
       )}
 
-      <ErrorMessage
-          errors={ errors }
-          name={name}
-          render={({ messages }) => {
-            return (
-              (messages)
-              && Object.entries(messages).map(([type, message]) => (
-                <ErrMessage key={type} text={message}/>
-              ))
-            );
-          }
-          }
-        />
-        {changeError && (
-          <ErrMessage text={changeError}/>
+      {name === 'password' && (
+        <div
+        id="eye"
+        className={classNames(
+          styles.passwordIcon,
+          { [styles.test]: !isChanging && touchedFields[name] },
+          { [styles.closedEye]: passType === 'password' },
+          { [styles.openedEye]: passType === 'text' },
         )}
+          onClick={() => {
+            setPassType(currPasType => {
+              if (currPasType === 'password') {
+                return 'text';
+              }
+
+              return 'password';
+            });
+          }}
+        ></div>
+      )}
     </label>
+
+    <ErrorMessage
+        errors={ errors }
+        name={name}
+        render={({ messages }) => {
+          return (
+            (messages)
+            && Object.entries(messages).map(([type, message]) => (
+              <ErrMessage key={type} text={message}/>
+            ))
+          );
+        }
+        }
+      />
+      {changeError && (
+        <ErrMessage text={changeError}/>
+      )}
+    </>
   );
 };
