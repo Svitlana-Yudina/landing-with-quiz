@@ -61,7 +61,7 @@ export const App: React.FC = () => {
   return (
     <div className="app">
       <div className="app__content">
-        {page === 'sex' && (
+        {/* {page === 'sex' && (
           <Main setPage={setPage}/>
         )}
         {page === 'quiz' && foundStep && (
@@ -69,7 +69,8 @@ export const App: React.FC = () => {
         )}
         {page === 'create' && (
           <Registration />
-        )}
+        )} */}
+        <Registration />
       </div>
     </div>
   );

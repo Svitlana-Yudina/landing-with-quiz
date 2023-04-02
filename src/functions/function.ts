@@ -35,7 +35,7 @@ export function getAge(year: number, month: number, day: number) {
     return age - 1;
   }
 
-  if (currentDay < day) {
+  if (currentMonth === month && currentDay < day) {
     return age - 1;
   }
 
