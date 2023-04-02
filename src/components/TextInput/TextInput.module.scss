@@ -52,7 +52,6 @@
 
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,19 +59,37 @@
 }
 
 .errorIcon {
+  right: 2.1rem;
   background-image: url('../../images/error.svg');
 }
 
 .successIcon {
+  right: 1.9rem;
   background-image: url('../../images/success.svg');
 }
 
-.errorText {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
+.passwordIcon {
+  position: absolute;
+  width: 2.2rem;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.test {
+  opacity: 0;
+}
 
-  color: #EF6A72;
+.closedEye {
+  top: 1.85rem;
+  right: 1.7rem;
+  height: 1.15rem;
+  background-image: url('../../images/closeEye.svg');
+}
+
+.openedEye {
+  top: 1.1rem;
+  right: 1.74rem;
+  height: 2.2rem;
+  background-image: url('../../images/openedEye.svg');
 }
