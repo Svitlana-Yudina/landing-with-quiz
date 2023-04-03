@@ -19,7 +19,9 @@ export const Main: React.FC<Props> = ({ setPage }) => {
   return (
     <>
       <div className={styles.main}>
-        <BackGroundPicture />
+        <div className={styles.bgWrapper}>
+          <BackGroundPicture type="sex" />
+        </div>
 
         <div className={styles.content}>
           <h1 className={styles.title}>
@@ -40,39 +42,8 @@ export const Main: React.FC<Props> = ({ setPage }) => {
         </div>
       </div>
 
-      <div className={styles.comments}>
-        <CommentsList />
-      </div>
+      <CommentsList />
 
-      {/* <footer className={styles.footer}>
-        <a
-          href="/"
-          className={styles.link}
-          onClick={(event) => {
-            event.preventDefault();
-          }}
-        >
-          Поддержка
-        </a>
-        <a
-          href="/"
-          className={styles.link}
-          onClick={(event) => {
-            event.preventDefault();
-          }}
-        >
-          О нас
-        </a>
-        <a
-          href="/"
-          className={styles.link}
-          onClick={(event) => {
-            event.preventDefault();
-          }}
-        >
-          Контакты
-        </a>
-      </footer> */}
       <Footer />
 
     </>

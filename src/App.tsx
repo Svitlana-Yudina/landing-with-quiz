@@ -22,6 +22,7 @@ const quiz: QuizType[] = [
     question: 'Что предпочтете?',
     answers: [
       'мясо',
+      'птица',
       'рыба',
       'только овощи',
     ],
@@ -61,7 +62,7 @@ export const App: React.FC = () => {
   return (
     <div className="app">
       <div className="app__content">
-        {/* {page === 'sex' && (
+        {page === 'sex' && (
           <Main setPage={setPage}/>
         )}
         {page === 'quiz' && foundStep && (
@@ -69,8 +70,19 @@ export const App: React.FC = () => {
         )}
         {page === 'create' && (
           <Registration />
-        )} */}
-        <Registration />
+        )}
+        {/* <Main setPage={setPage} /> */}
+        {/* <Registration /> */}
+        {/* <Quiz question={{
+          step: 1,
+          question: 'Цель знакомства:',
+          answers: [
+            'дружба и общение',
+            '',
+            'создание семьи',
+            'встречи без обязательств',
+          ],
+        }} setStep={setStep}/> */}
       </div>
     </div>
   );

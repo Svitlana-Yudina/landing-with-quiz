@@ -17,7 +17,9 @@ export const Quiz: React.FC<Props> = ({ question, setStep }) => {
   return (
     <>
       <div className={styles.quiz}>
-        <BackGroundPicture />
+        <div className={styles.bgWrapper}>
+          <BackGroundPicture type="quiz" />
+        </div>
         {question && (
           <div className={styles.content}>
             <h2 className={styles.question}>
