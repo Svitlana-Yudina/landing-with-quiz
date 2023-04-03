@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-console */
 /* eslint-disable no-shadow */
 import classNames from 'classnames';
 import React, { useState } from 'react';
@@ -22,6 +24,8 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
   const {
     register,
     trigger,
+    getValues,
+    setValue,
     formState: { errors, touchedFields },
   } = useFormContext();
   const isSuccessIcon = !errors[name] && !changeError && touchedFields[name];
@@ -84,6 +88,10 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
         onFocus={() => {
           setIsChanging(true);
         }}
+        onChange={debounce(async(event: React.ChangeEvent<HTMLInputElement>) => {
+          await setValue(name, event.target.value, { shouldValidate: true });
+          await trigger(name);
+        }, 700)}
       />
       {!isChanging && (
         <div className={classNames(
