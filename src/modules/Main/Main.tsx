@@ -19,9 +19,7 @@ export const Main: React.FC<Props> = ({ setPage }) => {
   return (
     <>
       <div className={styles.main}>
-        <div className={styles.bgWrapper}>
-          <BackGroundPicture type="sex" />
-        </div>
+        <BackGroundPicture type="sex" />
 
         <div className={styles.content}>
           <h1 className={styles.title}>

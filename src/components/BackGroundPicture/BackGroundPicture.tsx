@@ -9,12 +9,16 @@ type Props = {
 
 export const BackGroundPicture: React.FC<Props> = ({ type }) => {
   return (
-    <div
-      className={classNames(
-        styles.bg,
-        styles[type],
-      )}>
-      <div className={styles.gradient}></div>
+    <div className={classNames(
+      styles.bgWrapper,
+      { [styles.wrapperCreate]: type === 'create' },
+    )}>
+      <div
+        className={classNames(
+          styles.bg,
+          styles[type],
+        )}>
+      </div>
     </div>
   );
 }
