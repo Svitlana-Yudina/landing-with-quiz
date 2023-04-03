@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable no-console */
 /* eslint-disable no-shadow */
 import classNames from 'classnames';
 import React, { useState } from 'react';
@@ -24,7 +23,6 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
   const {
     register,
     trigger,
-    getValues,
     setValue,
     formState: { errors, touchedFields },
   } = useFormContext();
@@ -77,10 +75,6 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
               return res;
             },
           },
-          // onChange(event) {
-          //   setIsChanging(true);
-          //   console.log('onchange', isChanging);
-          // },
           onBlur() {
             setIsChanging(false);
           },

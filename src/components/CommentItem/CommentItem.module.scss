@@ -1,3 +1,5 @@
+@import '../../utils/mixins';
+
 .comment {
   position: relative;
   padding: 2rem 2.1rem;
@@ -20,6 +22,10 @@
     background-size: contain;
     background-position: 0 0;
   }
+
+  @include onDesktop {
+    padding: 2rem 3rem;
+  }
 }
 
 .title {
@@ -40,10 +46,10 @@
 
   color: #AAB2BD;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 5;
+  // -webkit-box-orient: vertical;
+  // overflow: hidden;
 }
 
 .photo {
@@ -64,4 +70,9 @@
   line-height: 1.4rem;
 
   color: #656D78;
+}
+
+.readMore {
+  font-style: normal;
+  color: #FF993B;
 }
