@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
 import { getAge, getSequence } from '../../functions/function';
 import { Inputs } from '../../types/types';
@@ -34,6 +34,8 @@ export const RegistrationForm: React.FC = () => {
     criteriaMode: 'all',
   });
 
+  const { reset } = methods;
+
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     const userAge = getAge(+data.year, +data.month, +data.day);
 
@@ -42,9 +44,8 @@ export const RegistrationForm: React.FC = () => {
 
       return;
     }
-
-    console.log(data);
-    console.log(userAge);
+    reset();
+    alert('Форма успешно отправлена!)');
   };
 
   const namePattern = new RegExp(/^[A-Za-zа-яА-я]+$/);
