@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-shadow */
+import React, { useState } from 'react';
 import { CommentType } from '../../types/types';
 import styles from './CommentItem.module.scss';
 
@@ -7,12 +8,14 @@ type Props = {
 };
 
 export const CommentItem: React.FC<Props> = ({ comment }) => {
+  const [isFullShown, setIsFullShown] = useState(false);
   const {
     femName,
     maleName,
     photo,
     ago,
-    commentText,
+    shortText,
+    fullText,
   } = comment;
 
   return (
@@ -28,11 +31,29 @@ export const CommentItem: React.FC<Props> = ({ comment }) => {
           </p>
         </div>
       </div>
+      {!isFullShown && (
+        <p className={styles.description}>
+          {shortText}
+          {fullText.length > shortText.length && (
+            <a
+              href='/'
+              className={styles.readMore}
+              onClick={(event) => {
+                event.preventDefault();
+                setIsFullShown(true);
+              }}
+            >
+              Читать полностью
+            </a>
+          )}
+        </p>
+      )}
 
-      <p className={styles.description}>
-        {commentText}
-        {/* <a className={styles.readMore}>Читать полностью</a> */}
-      </p>
+      {isFullShown && (
+        <p className={styles.description}>
+          {fullText}
+        </p>
+      )}
     </div>
   );
 };

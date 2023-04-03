@@ -13,7 +13,8 @@ export type CommentType = {
   maleName: string,
   photo: string,
   ago: string,
-  commentText: string,
+  shortText: string,
+  fullText: string,
 }
 
 export type Inputs = {
