@@ -77,11 +77,11 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
           //   setIsChanging(true);
           //   console.log('onchange', isChanging);
           // },
-          onBlur(event) {
+          onBlur() {
             setIsChanging(false);
           },
         })}
-        onFocus={(event) => {
+        onFocus={() => {
           setIsChanging(true);
         }}
       />
@@ -98,7 +98,7 @@ export const TextInput: React.FC<Props> = ({ type, text, name, check }) => {
         id="eye"
         className={classNames(
           styles.passwordIcon,
-          { [styles.test]: !isChanging && touchedFields[name] },
+          { [styles.hidden]: !isChanging && touchedFields[name] },
           { [styles.closedEye]: passType === 'password' },
           { [styles.openedEye]: passType === 'text' },
         )}
