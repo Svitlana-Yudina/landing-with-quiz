@@ -7,7 +7,9 @@ import styles from './Registration.module.scss';
 export const Registration: React.FC = () => {
   return (
     <div className={styles.registration}>
-      <BackGroundPicture />
+      <div className={styles.bgWraper}>
+        <BackGroundPicture type="create" />
+      </div>
       <div className={styles.container}>
         <h1 className={styles.title}>
           Создать анкету

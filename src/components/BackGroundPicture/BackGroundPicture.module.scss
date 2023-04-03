@@ -1,5 +1,8 @@
 .bg {
+  position: absolute;
+  min-width: 32rem;
   width: 100%;
+  min-height: 29.5rem;
   height: 100%;
   background-image: url('../../images/photo.webp');
   background-repeat: no-repeat;
@@ -14,4 +17,16 @@
     background-size: cover;
     background-position: center bottom;
   }
+}
+
+.quiz {
+  bottom: -1.9rem;
+}
+
+.create {
+  bottom: 0;
+}
+
+.sex {
+  bottom: -2.6rem;
 }
