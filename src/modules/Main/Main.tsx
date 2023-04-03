@@ -27,18 +27,20 @@ export const Main: React.FC<Props> = ({ setPage }) => {
           <h1 className={styles.title}>
             Наибольшая база анкет для знакомств
           </h1>
-          <PrimaryButton
-            type="sex"
-            text="Я мужчина"
-            image="./images/m_icon.svg"
-            onClick={handleClickSex}
-          />
-          <PrimaryButton
-            type="sex"
-            text="Я женщина"
-            image="./images/f_icon.svg"
-            onClick={handleClickSex}
-          />
+          <div className={styles.buttons}>
+            <PrimaryButton
+              type="sex"
+              text="Я мужчина"
+              image="./images/m_icon.svg"
+              onClick={handleClickSex}
+            />
+            <PrimaryButton
+              type="sex"
+              text="Я женщина"
+              image="./images/f_icon.svg"
+              onClick={handleClickSex}
+            />
+          </div>
         </div>
       </div>
 
