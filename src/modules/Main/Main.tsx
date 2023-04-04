@@ -17,7 +17,7 @@ export const Main: React.FC<Props> = ({ setPage }) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.main}>
         <BackGroundPicture type="sex" />
 
@@ -46,6 +46,6 @@ export const Main: React.FC<Props> = ({ setPage }) => {
 
       <Footer />
 
-    </>
+    </div>
   );
 };

@@ -1,5 +1,8 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 import './App.scss';
 import { Main } from './modules/Main';
 import { Quiz } from './modules/Quiz';
@@ -62,27 +65,35 @@ export const App: React.FC = () => {
   return (
     <div className="app">
       <div className="app__content">
-        {page === 'sex' && (
-          <Main setPage={setPage}/>
-        )}
-        {page === 'quiz' && foundStep && (
-          <Quiz question={foundStep} setStep={setStep}/>
-        )}
-        {page === 'create' && (
-          <Registration />
-        )}
-        {/* <Main setPage={setPage} /> */}
-        {/* <Registration /> */}
-        {/* <Quiz question={{
-          step: 1,
-          question: 'Цель знакомства:',
-          answers: [
-            'дружба и общение',
-            'долгосрочные отношения',
-            'создание семьи',
-            'встречи без обязательств',
-          ],
-        }} setStep={setStep}/> */}
+        <TransitionGroup className="test">
+          {page === 'sex' && (
+            <CSSTransition
+            key="sex"
+            timeout={300}
+            classNames="item"
+          >
+            <Main setPage={setPage}/>
+          </CSSTransition>
+          )}
+          {page === 'quiz' && foundStep && (
+          <CSSTransition
+            key={`${quiz}-${foundStep.step}`}
+            timeout={300}
+            classNames="item"
+          >
+              <Quiz question={foundStep} setStep={setStep}/>
+          </CSSTransition>
+          )}
+          {page === 'create' && (
+            <CSSTransition
+              key="create"
+              timeout={300}
+              classNames="item"
+            >
+            <Registration />
+          </CSSTransition>
+          )}
+        </TransitionGroup>
       </div>
     </div>
   );
