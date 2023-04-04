@@ -15,7 +15,7 @@ export const Quiz: React.FC<Props> = ({ question, setStep }) => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.quiz}>
         <BackGroundPicture type="quiz" />
         {question && (
@@ -41,6 +41,6 @@ export const Quiz: React.FC<Props> = ({ question, setStep }) => {
         Чтобы идеально подобрать для вас пару,<br />
         ответьте на несколько вопросов
       </p>
-    </>
+    </div>
   );
 };

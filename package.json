@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.8",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "typescript-eslint-parser": "^22.0.0",
     "web-vitals": "^2.1.4"
   },
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@mate-academy/eslint-config": "0.0.20",
     "@types/lodash.debounce": "^4.0.7",
+    "@types/react-transition-group": "^4.4.5",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^7.32.0",
