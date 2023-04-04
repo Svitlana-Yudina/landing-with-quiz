@@ -1,0 +1,40 @@
+
+body {
+  background-color: #313134;
+}
+
+html {
+  font-size: 3.125vw;
+
+  @media (min-width: 480px) {
+    font-size: 15px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 0.78vw;
+  }
+
+  @media (min-width: 1540px) {
+    font-size: 12px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+h1,
+h2,
+p,
+button,
+input,
+select,
+option {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
