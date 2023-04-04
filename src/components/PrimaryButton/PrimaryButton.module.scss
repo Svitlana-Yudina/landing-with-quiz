@@ -1,3 +1,5 @@
+@import '../../utils/variables';
+
 .default {
   padding: 1.3rem 4.37rem calc(1.3rem + 1px);
   width: 100%;
@@ -7,13 +9,13 @@
   text-align: center;
   letter-spacing: 0.02em;
 
-  color: #242530;
-  background: linear-gradient(180deg, #FFB45C 0%, #FFA438 100%);
+  color: $bg;
+  background: $bg--default-button;
   border: none;
   border-radius: 10px;
 
   &:active {
-    background: #E3983F;
+    background: $bg--pressed-button;
   }
 }
 
