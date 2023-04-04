@@ -76,13 +76,13 @@ export const App: React.FC = () => {
           </CSSTransition>
           )}
           {page === 'quiz' && foundStep && (
-          <CSSTransition
-            key={`${quiz}-${foundStep.step}`}
-            timeout={300}
-            classNames="item"
-          >
+            <CSSTransition
+              key={`${quiz}-${foundStep.step}`}
+              timeout={300}
+              classNames="item"
+            >
               <Quiz question={foundStep} setStep={setStep}/>
-          </CSSTransition>
+            </CSSTransition>
           )}
           {page === 'create' && (
             <CSSTransition
