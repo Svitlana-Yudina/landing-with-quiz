@@ -1,10 +1,11 @@
 @import '../../utils/mixins';
+@import '../../utils/variables';
 
 .comment {
   position: relative;
   padding: 2rem 2.1rem;
 
-  background: #2F303E;
+  background: $bg--comment-bg;
   border-radius: 10px;
   overflow-x: hidden;
 
@@ -44,12 +45,7 @@
   line-height: 1.9rem;
   text-align: justify;
 
-  color: #AAB2BD;
-
-  // display: -webkit-box;
-  // -webkit-line-clamp: 5;
-  // -webkit-box-orient: vertical;
-  // overflow: hidden;
+  color: $text--small-text;
 }
 
 .photo {
@@ -69,7 +65,7 @@
   font-size: 1.2rem;
   line-height: 1.4rem;
 
-  color: #656D78;
+  color: $text--gray;
 }
 
 .readMore {

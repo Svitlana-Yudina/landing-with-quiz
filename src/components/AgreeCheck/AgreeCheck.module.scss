@@ -1,10 +1,12 @@
+@import '../../utils/variables';
+
 .agreeDescription {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 0.9rem;
   line-height: 1.2rem;
 
-  color: #656D78;
+  color: $text--gray;
 }
 
 .checkContent {
@@ -23,11 +25,13 @@
     left: 0;
     top: calc(50% - 1.3rem / 2);
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     content: '';
     width: 1.3rem;
     height: 1.3rem;
 
-    border: 1px solid #656D78;
+    border: 1px solid $text--gray;
     border-radius: 2px;
     background-clip: content-box;
   }
@@ -45,14 +49,4 @@
       background-position: center;
     }
   }
-}
-
-.errorText {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-
-  color: #EF6A72;
 }

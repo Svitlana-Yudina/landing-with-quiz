@@ -13,7 +13,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: $bg--dark-gray;
+  background: $bg;
 
   @include onDesktop {
     max-height: 91.5rem;
@@ -36,7 +36,7 @@
   max-width: 480px;
   width: 100%;
   text-align: center;
-  color: #AAB2BD;
+  color: $text--small-text;
   opacity: 0.6;
 }
 
