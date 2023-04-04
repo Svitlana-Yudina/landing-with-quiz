@@ -17,10 +17,36 @@
   }
 
   &__content {
+    overflow-x: clip;
     margin: 0 auto;
     height: 100%;
     max-width: 480px;
     width: 100%;
     background: $bg--dark-gray;
   }
+}
+
+.test {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
+.item-enter {
+  transform: translateX(100%);
+}
+
+.item-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms linear;
+}
+
+.item-exit {
+
+  transform: translateX(100%);
+}
+
+.item-exit-active {
+  transform: translateX(0);
+  transition: transform 300ms linear;
 }
