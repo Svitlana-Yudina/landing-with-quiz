@@ -1,0 +1,97 @@
+@import '../../utils/variables';
+
+.label {
+  position: relative;
+  display: block;
+}
+
+.input {
+  padding: 1.4rem 1.6rem;
+  width: 100%;
+  height: 4.4rem;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+
+  background: $bg--input-default;
+  box-shadow: inset 1px 1px 6px rgba(36, 37, 48, 0.5);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &:focus {
+    background: $bg--light-gray;
+    filter: drop-shadow(0px 0px 8px rgba(255, 187, 47, 0.4));
+    box-shadow: none;
+  }
+}
+
+.error {
+  background: $bg--input-error;
+  border: 1px solid $error;
+
+  &:focus {
+    background: $bg--light-gray;
+    filter: none;
+  }
+}
+
+.success {
+  background: $bg--input-correct;
+  border: 1px solid $correct;
+}
+
+.icon {
+  height: 1.4rem;
+  width: 1.4rem;
+
+  position: absolute;
+  top: 1.5rem;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.errorIcon {
+  right: 2.1rem;
+  background-image: url('../../images/error.svg');
+}
+
+.successIcon {
+  right: 1.9rem;
+  background-image: url('../../images/success.svg');
+}
+
+.passwordIcon {
+  position: absolute;
+  width: 2.2rem;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.hidden {
+  opacity: 0;
+}
+
+.closedEye {
+  top: 1.85rem;
+  right: 1.7rem;
+  height: 1.15rem;
+  background-image: url('../../images/closeEye.svg');
+}
+
+.openedEye {
+  top: 1.1rem;
+  right: 1.74rem;
+  height: 2.2rem;
+  background-image: url('../../images/openedEye.svg');
+}

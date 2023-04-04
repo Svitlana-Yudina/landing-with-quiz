@@ -1,0 +1,52 @@
+@import '../../utils/variables';
+
+.agreeDescription {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+
+  color: $text--gray;
+}
+
+.checkContent {
+  position: relative;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.agreeLabel {
+
+  &::before {
+    padding: 0.217rem 0.117rem;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1.3rem / 2);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    content: '';
+    width: 1.3rem;
+    height: 1.3rem;
+
+    border: 1px solid $text--gray;
+    border-radius: 2px;
+    background-clip: content-box;
+  }
+}
+
+.agreeCheckbox {
+  width: 1.3rem;
+  height: 1.3rem;
+  opacity: 0;
+
+  &:checked {
+    + .agreeLabel::before {
+      background-image: url('../../images/checked.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
