@@ -1,6 +1,5 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable max-len */
-/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from 'react';
 import { SubmitHandler, useForm, FormProvider } from 'react-hook-form';
