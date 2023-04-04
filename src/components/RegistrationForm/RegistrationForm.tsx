@@ -33,7 +33,7 @@ export const RegistrationForm: React.FC = () => {
     criteriaMode: 'all',
   });
 
-  const { reset } = methods;
+  const { reset, formState: { errors } } = methods;
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     const userAge = getAge(+data.year, +data.month, +data.day);
@@ -109,6 +109,9 @@ export const RegistrationForm: React.FC = () => {
               setIsAgeValid={setIsAgeValid}
             />
           </div>
+          {(errors.day || errors.month || errors.year) && (
+            <ErrMessage text='Это обязательное поле!' />
+          )}
           {!isAgeValid && (
             <ErrMessage text="Возраст должен быть больше 18 и меньше 80 лет"/>
           )}
