@@ -1,8 +1,8 @@
 const cacheName = 'staticCache v-01';
 
 const testCache = [
-  'api.js',
-  'code.html',
+  'robots.txt',
+  'index.html',
 ];
 
 // eslint-disable-next-line no-shadow
