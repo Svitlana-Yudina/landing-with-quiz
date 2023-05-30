@@ -7,12 +7,12 @@
   "short_name": "land",
   "icons": [
     {
-      "src": "%PUBLIC_URL%/icon-192x192.png",
+      "src": "./icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "%PUBLIC_URL%/icon-256x256.png",
+      "src": "./icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
