@@ -8,6 +8,7 @@ import { Main } from './modules/Main';
 import { Quiz } from './modules/Quiz';
 import { Registration } from './modules/Registration';
 import { ButtonStyles, QuizType } from './types/types';
+import Button from './components/Button';
 
 const quiz: QuizType[] = [
   {
@@ -65,6 +66,7 @@ export const App: React.FC = () => {
   return (
     <div className="app">
       <div className="app__content">
+        <Button />
         <TransitionGroup className="test">
           {page === 'sex' && (
             <CSSTransition
