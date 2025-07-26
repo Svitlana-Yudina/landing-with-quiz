@@ -11,7 +11,7 @@ type Props = {
 
 export const Quiz: React.FC<Props> = ({ question, setStep }) => {
   const handleClickQuiz = () => {
-    setStep(currStep => currStep + 1);
+    setStep(myStep => myStep + 1);
   };
 
   return (
