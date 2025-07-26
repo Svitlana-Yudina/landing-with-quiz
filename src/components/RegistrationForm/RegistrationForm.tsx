@@ -44,7 +44,7 @@ export const RegistrationForm: React.FC = () => {
       return;
     }
     reset();
-    alert('');
+    alert('Новое сообщение!)');
   };
 
   const namePattern = new RegExp(/^[A-Za-zа-яА-я]+$/);
