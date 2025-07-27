@@ -10,12 +10,12 @@
   letter-spacing: 0.02em;
 
   color: $bg;
-  background: $bg--default-button;
+  background: yellowgreen;
   border: none;
   border-radius: 10px;
 
   &:active {
-    background: $bg--pressed-button;
+    background: yellow;
   }
 }
 
